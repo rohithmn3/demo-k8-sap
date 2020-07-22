@@ -59,3 +59,38 @@ Now that the application is running and resilient; let's make it available to ot
 # kubectl create -f ingress.yaml
 # kubectl get ingress
 ```
+Now try to access the ingress ADDRESS, which we get from the above command. (ex: a3b287aa82e9c42dfbda7bb7ec83b8e6-1053580487.eu-central-1.elb.amazonaws.com)
+
+Exercise 4 - PVC
+**************
+persist data in kubernetes using volumes.
+```
+PV - storage chunk created by the storage admin.
+PVC - is a request made to the storage by the developers.
+         
+**Two ways of Provesioning**
+Static Provesioning : PV needs to be created before PVC
+Dynamic Provesioning: PV is created at the same time of PVC
+
+**Remember:**
+volumeBindingMode : WaitForFirstConsumer
+This will delay the binding and provisioning of a PersistentVolume until a Pod using the PersistentVolumeClaim is created
+
+In here we will try to attach volume to the pod using **Dynamic Provesioning** 
+1) create a storage class                                                                       # kubectl create -f storageclass.yaml
+2) check the status od the storage class                                                        # kubectl get storageclass
+3) create a PVC and make sure we point it to the above created storage class                    # kubectl create -f pvc.yaml
+
+4) Modify the Deployment created in Excersise 2 by attaching the created volumes using PVC      # kubectl create -f pvc_deployment.yaml
+
+5) check whether the data will be consistant in the pods by following the below steps:
+            # kubectl get pods 
+            # kubectl exec -it <pod_name> -- sh
+                    /# df -h (check your newly created mount)
+                    /# mkdir test (create a dummy folder/file inside the mount) 
+                    /# exit (exit from the conatiner)
+            
+            # kubectl delete pod <pod_name> (Delete the pod)
+            once the new pod is back up and running login to it and verify whether the same folder/file is still present. If yes then the storage is persistant.
+            
+```
