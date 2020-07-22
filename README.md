@@ -1,4 +1,4 @@
-# demo-k8-sap
+# Exercises for K8
 ```
 # export KUBECONFIG=$HOME/.kube/config
 # mkdir $HOME/.kube/custom-contexts
@@ -14,7 +14,7 @@ Change the default namespace in k8:
 
   
   
-Exercise 1 - create your first pod
+## Exercise 1 - create your first pod
 **************
 ```
 1) create the pod                     # kubectl apply -f pod.yaml
@@ -27,7 +27,7 @@ Exercise 1 - create your first pod
 8) delete the pod                     # kubectl delete pod <pod-name>
 
 ```
-Exercise 2 - Deployment
+## Exercise 2 - Deployment
 **************
 ```
 1) create the deployment:                                     # kubectl apply -f deployment.yaml
@@ -48,7 +48,7 @@ Exercise 2 - Deployment
 12) select the deployemnt based on labels   # kubectl get deployments --selector='app=nginx'
 ```
 
-Exercise 3 - Services
+## Exercise 3 - Services
 **************
 Now that the application is running and resilient; let's make it available to other users inside and outside of the cluster.
 
@@ -61,7 +61,7 @@ Now that the application is running and resilient; let's make it available to ot
 ```
 Now try to access the ingress ADDRESS, which we get from the above command. (ex: a3b287aa82e9c42dfbda7bb7ec83b8e6-1053580487.eu-central-1.elb.amazonaws.com)
 
-Exercise 4 - PVC
+## Exercise 4 - PVC
 **************
 persist data in kubernetes using volumes.
 ```
