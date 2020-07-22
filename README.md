@@ -46,3 +46,16 @@ Exercise 2 - Deployment
 
 
 12) select the deployemnt based on labels   # kubectl get deployments --selector='app=nginx'
+```
+
+Exercise 3 - Services
+**************
+Now that the application is running and resilient; let's make it available to other users inside and outside of the cluster.
+
+```
+# kubectl create -f service.yaml
+# kubectl get svc
+
+# kubectl create -f ingress.yaml
+# kubectl get ingress
+```
