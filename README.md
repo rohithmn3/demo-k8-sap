@@ -6,6 +6,10 @@
 # kubectl config get-contexts
 # kubectl config use-context <new-context-name>
 
+Change the default namespace in k8:
+# kubectl config set-context --current --namespace=my-namespace
+# kubectl config view | grep namespace:
+
 ```
   
   
