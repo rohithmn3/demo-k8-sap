@@ -81,7 +81,7 @@ In here we will try to attach volume to the pod using **Dynamic Provesioning**
 2) check the status od the storage class                                                        # kubectl get storageclass
 3) create a PVC and make sure we point it to the above created storage class                    # kubectl create -f pvc.yaml
 
-4) Modify the Deployment created in Excersise 2 by attaching the created volumes using PVC      # kubectl create -f pvc_deployment.yaml
+4) Modify the Deployment created in Exercise 2 by attaching the created volumes using PVC      # kubectl create -f pvc_deployment.yaml
 
 5) check whether the data will be consistant in the pods by following the below steps:
             # kubectl get pods 
