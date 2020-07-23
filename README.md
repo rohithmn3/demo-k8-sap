@@ -69,22 +69,22 @@ To try a service of type LoadBalancer, From where we can directly access our app
 - No need of ingress here..!
 - Try accessing the application from browser : http://<loadbalancer-ip>
 ```
-## Exercise 4 - PVC
-**************
-persist data in kubernetes using volumes.
+## Exercise 4 - PVC                                     
+**************                                                                                          
+persist data in kubernetes using volumes.                                                                              
+                                                                   
+PV - storage chunk created by the storage admin.                                                                                   
+PVC - is a request made to the storage by the developers.                                                                             
+                                                                    
+**Two ways of Provesioning**                                 
+Static Provesioning : PV needs to be created before PVC                                        
+Dynamic Provesioning: PV is created at the same time of PVC                                          
+                                                    
+**Remember:**                                                
+volumeBindingMode : WaitForFirstConsumer                                                 
+This will delay the binding and provisioning of a PersistentVolume until a Pod using the PersistentVolumeClaim is created                            
 
-PV - storage chunk created by the storage admin.
-PVC - is a request made to the storage by the developers.
-         
-**Two ways of Provesioning**
-Static Provesioning : PV needs to be created before PVC
-Dynamic Provesioning: PV is created at the same time of PVC
-
-**Remember:**
-volumeBindingMode : WaitForFirstConsumer
-This will delay the binding and provisioning of a PersistentVolume until a Pod using the PersistentVolumeClaim is created
-
-In here we will try to attach volume to the pod using **Dynamic Provesioning** 
+In here we will try to attach volume to the pod using **Dynamic Provesioning**                                          
 ```
 1) create a storage class                                                                       # kubectl create -f storageclass.yaml
 2) check the status od the storage class                                                        # kubectl get storageclass
