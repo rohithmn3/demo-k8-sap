@@ -60,7 +60,8 @@ Now that the application is running and resilient; let's make it available to ot
 # kubectl get ingress
 ```
 Now try to access the ingress ADDRESS, which we get from the above command. (ex: a3b287aa82e9c42dfbda7bb7ec83b8e6-1053580487.eu-central-1.elb.amazonaws.com)
-To try a service of type LoadBalancer, From where we can directly access our application directly fromthe LB address; Follow below steps:
+
+To try a service of type LoadBalancer, From where we can directly access our application from the LB address; Follow below steps:
 ```
 - modify the type to LoadBalancer here: https://github.com/rohithmn3/demo-k8-sap/blob/master/service.yaml#L13
   # kubectl apply -f service.yaml
