@@ -82,13 +82,15 @@ Dynamic Provesioning: PV is created at the same time of PVC
                                                     
 **Remember:**                                                
 volumeBindingMode : WaitForFirstConsumer                                                 
-This will delay the binding and provisioning of a PersistentVolume until a Pod using the PersistentVolumeClaim is created                            
+(i.e.., This will delay the binding and provisioning of a PersistentVolume until a Pod using the PersistentVolumeClaim is created)                           
 
 In here we will try to attach volume to the pod using **Dynamic Provesioning**                                          
 ```
 1) create a storage class                                                                       # kubectl create -f storageclass.yaml
 2) check the status od the storage class                                                        # kubectl get storageclass
 3) create a PVC and make sure we point it to the above created storage class                    # kubectl create -f pvc.yaml
+4) check the status of the PVC to understand volumeBindingMode                                  # kubectl get pvc
+                                                                                                # kubectl describe pvc <pvc_name>
 
 4) Modify the Deployment created in Exercise 2 by attaching the created volumes using PVC      # kubectl create -f pvc_deployment.yaml
 
