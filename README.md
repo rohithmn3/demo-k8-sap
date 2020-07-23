@@ -63,6 +63,8 @@ Now try to access the ingress ADDRESS, which we get from the above command. (ex:
 To try a service of type LoadBalancer, From where we can directly access our application directly fromthe LB address; Follow below steps:
 ```
 - modify the type to LoadBalancer here: https://github.com/rohithmn3/demo-k8-sap/blob/master/service.yaml#L13
+  # kubectl apply -f service.yaml
+  # kubectl get svc -o wide
 - No need of ingress here..!
 - Try accessing the application from browser : http://<loadbalancer-ip>
 ```
