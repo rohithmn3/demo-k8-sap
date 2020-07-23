@@ -28,6 +28,8 @@ Change the default namespace in k8:
 8) delete the pod                     # kubectl delete pod <pod-name>
 
 ```
+
+
 ## Exercise 2 - Deployment
 **************
 [deployment.yaml](https://github.com/rohithmn3/demo-k8-sap/blob/master/deployment.yaml)
@@ -49,6 +51,7 @@ Change the default namespace in k8:
 
 12) select the deployemnt based on labels                     # kubectl get deployments.apps -l run=web (we get the o/p if we have labeled the deployemnt)
 ```
+
 
 ## Exercise 3 - Services
 **************
@@ -74,6 +77,8 @@ To try a service of type LoadBalancer, From where we can directly access our app
 - No need of ingress here..!
 - Try accessing the application from browser : http://<loadbalancer-ip>
 ```
+
+
 ## Exercise 4 - PVC                                     
 ************** 
 [storageclass.yaml](https://github.com/rohithmn3/demo-k8-sap/blob/master/storageclass.yaml)                                                                         
@@ -117,3 +122,12 @@ In here we will try to attach volume to the pod using **Dynamic Provesioning**
             once the new pod is back up and running login to it and verify whether the same folder/file is still present. If yes then the storage is persistant.
             
 ```
+
+
+## Exercise 5 - StatefulSets                                     
+************** 
+- Represent a set of Pods with unique, persistent identities and stable hostnames.
+- The state information and other resilient data for any given StatefulSet Pod is maintained in persistent disk storage associated with the StatefulSet.
+
+**Assignemt** : Try to combine our service.yaml, deployment.yaml and pvc.yaml to create a statefulset.yaml and observe the order in which pods are coming up and their staeble hostnames.                                     
+For example : https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#components
