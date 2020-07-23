@@ -16,6 +16,7 @@ Change the default namespace in k8:
   
 ## Exercise 1 - create your first pod
 **************
+[pod.yaml](https://github.com/rohithmn3/demo-k8-sap/blob/master/pod.yaml)
 ```
 1) create the pod                     # kubectl apply -f pod.yaml
 2) verify that the pod is running     # kubectl get pods
@@ -29,6 +30,7 @@ Change the default namespace in k8:
 ```
 ## Exercise 2 - Deployment
 **************
+[deployment.yaml](https://github.com/rohithmn3/demo-k8-sap/blob/master/deployment.yaml)
 ```
 1) create the deployment:                                     # kubectl apply -f deployment.yaml
 2) verify that the deployment is running                      # kubectl get deployments
@@ -50,6 +52,9 @@ Change the default namespace in k8:
 
 ## Exercise 3 - Services
 **************
+[service.yaml](https://github.com/rohithmn3/demo-k8-sap/blob/master/service.yaml)
+[ingress.yaml](https://github.com/rohithmn3/demo-k8-sap/blob/master/ingress.yaml)
+
 Now that the application is running and resilient; let's make it available to other users inside and outside of the cluster.
 
 ```
@@ -70,7 +75,10 @@ To try a service of type LoadBalancer, From where we can directly access our app
 - Try accessing the application from browser : http://<loadbalancer-ip>
 ```
 ## Exercise 4 - PVC                                     
-**************                                                                                          
+************** 
+[storageclass.yaml](https://github.com/rohithmn3/demo-k8-sap/blob/master/storageclass.yaml)
+[pvc.yaml](https://github.com/rohithmn3/demo-k8-sap/blob/master/pvc.yaml)
+
 persist data in kubernetes using volumes.                                                                              
                                                                    
 PV - storage chunk created by the storage admin.                                                                                   
