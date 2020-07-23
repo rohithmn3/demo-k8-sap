@@ -23,7 +23,7 @@ Change the default namespace in k8:
 3) get the logs                       # kubectl logs <pod-name>
 4) describe the pod                   # kubectl describe pod <pod-name>
 5) label the pod                      # we can add labels under metadata of the yaml file
-6) IP of the Pod                      # kubectl get pods -n demo-ns -o wide
+6) IP of the Pod                      # kubectl get pods -o wide
 7) exec into pod                      # kubectl exec -it <pod_name> -- bash
 8) delete the pod                     # kubectl delete pod <pod-name>
 
@@ -38,16 +38,16 @@ Change the default namespace in k8:
    (its a rolling update meaning serial update - one by one, so that we are able to keep the application up and running)
 4) scaling                                                    # kubectl scale deployment <dep_name> --replicas=2
 5) Test the resilience of your deployment by deleting a pod.
-6) update with wrong image tag                                # kubectl set image deployment/<dep_name> nginx=nginx:mainlne --record
+6) update with wrong image tag (mainlne)                      # kubectl set image deployment/<dep_name> nginx=nginx:mainlne --record
 
 7)                                                            # kubectl rollout status deployment <dep_name>
 8)                                                            # kubectl get pods
-9)                                                            # kubectl rollout history deployment <dep_name>
+9)  Check the rollout history of the deploymen                # kubectl rollout history deployment <dep_name>
 10) Rolling Back to a Previous revision                       #kubectl rollout undo deployment.v1.apps/<dep_name>
-11)                                         # kubectl rollout history deployment.v1.apps/<dep_name> --revision=2
+11) Rolling Back to a specific revision/version               # kubectl rollout history deployment.v1.apps/<dep_name> --revision=2
 
 
-12) select the deployemnt based on labels   # kubectl get deployments --selector='app=nginx'
+12) select the deployemnt based on labels                     # kubectl get deployments.apps -l run=web (we get the o/p if we have labeled the deployemnt)
 ```
 
 ## Exercise 3 - Services
@@ -77,7 +77,8 @@ To try a service of type LoadBalancer, From where we can directly access our app
 ## Exercise 4 - PVC                                     
 ************** 
 [storageclass.yaml](https://github.com/rohithmn3/demo-k8-sap/blob/master/storageclass.yaml)                                                                         
-[pvc.yaml](https://github.com/rohithmn3/demo-k8-sap/blob/master/pvc.yaml)                                             
+[pvc.yaml](https://github.com/rohithmn3/demo-k8-sap/blob/master/pvc.yaml)                                              
+[pvc_deployment.yaml](https://github.com/rohithmn3/demo-k8-sap/blob/master/pvc_deployment.yaml)
 
 persist data in kubernetes using volumes.                                                                              
                                                                    
@@ -100,7 +101,10 @@ In here we will try to attach volume to the pod using **Dynamic Provesioning**
 4) check the status of the PVC to understand volumeBindingMode                                  # kubectl get pvc
                                                                                                 # kubectl describe pvc <pvc_name>
 
-4) Modify the Deployment created in Exercise 2 by attaching the created volumes using PVC      # kubectl create -f pvc_deployment.yaml
+4) Modify the Deployment created in Exercise 2 by attaching the created volumes using PVC
+            # cp pvc_deployment.yaml deployment.yaml;
+            # kubectl apply -f deployment.yaml
+            # kubectl get deployments
 
 5) check whether the data will be consistant in the pods by following the below steps:
             # kubectl get pods 
