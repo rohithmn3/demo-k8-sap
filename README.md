@@ -52,8 +52,8 @@ Change the default namespace in k8:
 
 ## Exercise 3 - Services
 **************
-[service.yaml](https://github.com/rohithmn3/demo-k8-sap/blob/master/service.yaml)
-[ingress.yaml](https://github.com/rohithmn3/demo-k8-sap/blob/master/ingress.yaml)
+[service.yaml](https://github.com/rohithmn3/demo-k8-sap/blob/master/service.yaml)                                            
+[ingress.yaml](https://github.com/rohithmn3/demo-k8-sap/blob/master/ingress.yaml)                              
 
 Now that the application is running and resilient; let's make it available to other users inside and outside of the cluster.
 
@@ -76,8 +76,8 @@ To try a service of type LoadBalancer, From where we can directly access our app
 ```
 ## Exercise 4 - PVC                                     
 ************** 
-[storageclass.yaml](https://github.com/rohithmn3/demo-k8-sap/blob/master/storageclass.yaml)
-[pvc.yaml](https://github.com/rohithmn3/demo-k8-sap/blob/master/pvc.yaml)
+[storageclass.yaml](https://github.com/rohithmn3/demo-k8-sap/blob/master/storageclass.yaml)                                                                         
+[pvc.yaml](https://github.com/rohithmn3/demo-k8-sap/blob/master/pvc.yaml)                                             
 
 persist data in kubernetes using volumes.                                                                              
                                                                    
